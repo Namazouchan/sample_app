@@ -17,6 +17,8 @@ class UsersController < ApplicationController
     if @user.save
       flash[:success] = "Welcome to the Sample App!"
       redirect_to @user  # => GET users/:id
+      reset_session
+      log_in @user
       # redirect_to user_path(@user) => GET users/:id
       # redirect_to user_path(@user.id) GET users/:2
     else
